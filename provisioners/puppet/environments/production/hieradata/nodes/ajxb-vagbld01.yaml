@@ -1,0 +1,10 @@
+---
+bs_primary_user_email: Adam.J.Butler@gmail.com
+bs_primary_user_fullname: Adam Butler
+bs_primary_user_group: vagrant
+bs_primary_user_name: vagrant
+bs_samba_workgroup: AJB-CK-WG
+bs_nameservers:
+  - 172.16.0.1
+  - 8.8.8.8
+  - 8.8.4.4

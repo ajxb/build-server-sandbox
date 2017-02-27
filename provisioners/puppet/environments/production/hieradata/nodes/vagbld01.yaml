@@ -1,0 +1,9 @@
+---
+bs_primary_user_email: none 
+bs_primary_user_fullname: none
+bs_primary_user_group: vagrant
+bs_primary_user_name: vagrant
+bs_samba_workgroup: WORKGROUP
+bs_nameservers:
+  - 8.8.8.8
+  - 8.8.4.4

@@ -1,0 +1,9 @@
+---
+bs_docker_version: 1.13.1-0~ubuntu-xenial
+bs_gradle_version: 3.4
+bs_java_version: 8u121
+bs_maven_version: 3.3.9
+bs_packer_version: 0.12.2
+bs_ruby_version: 2.3.3
+bs_rubygems_version: 2.6.10
+bs_vagrant_version: 1.9.1
