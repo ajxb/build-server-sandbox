@@ -259,6 +259,24 @@ git::config { 'user.email':
   ]
 }
 
+git::config { 'core.editor':
+  value   => 'atom --wait',
+  user    => $bs_primary_user_name,
+  require => [
+    Class['git'],
+    User[$bs_primary_user_name],
+  ]
+}
+
+git::config { 'color.ui':
+  value   => 'true',
+  user    => $bs_primary_user_name,
+  require => [
+    Class['git'],
+    User[$bs_primary_user_name],
+  ]
+}
+
 ###############################################################################
 # Ordering
 ###############################################################################
