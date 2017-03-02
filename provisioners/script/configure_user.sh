@@ -1,6 +1,43 @@
 #!/bin/bash
 
 ###############################################################################
+# Installs and configures the adapta gtk theme
+# Globals:
+#   $0
+# Arguments:
+#   None
+# Returns:
+#   None
+###############################################################################
+configure_theme() {
+  echo 'Configuring Unity theme'
+  add-apt-repository -y ppa:tista/adapta
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to add apt repository for tista/adapta'
+  fi
+
+  apt-get -qq update
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to update apt package cache'
+  fi
+
+  apt-get -qq -y install adapta-gtk-theme
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to install adapta-gtk-theme'
+  fi
+
+  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to configure gtk theme for ${THE_USER}"
+  fi
+
+  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.wm.preferences theme 'Adapta'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to configure wm theme for ${THE_USER}"
+  fi
+}
+
+###############################################################################
 # Parse script input for validity and configure global variables for use
 # throughout the script
 # Globals:
@@ -69,7 +106,9 @@ main() {
   #############################################################################
   # Configure unity
   #############################################################################
-  echo 'Configuring unity'
+  configure_theme
+
+  echo 'Configuring unity launcher'
   su - ${THE_USER} -c "dbus-launch gsettings set com.canonical.Unity.Launcher favorites \"['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://gnome-terminal.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']\""
   if [[ $? -ne 0 ]]; then
     echo "WARN: Failed to configure unity launcher for ${THE_USER}"
