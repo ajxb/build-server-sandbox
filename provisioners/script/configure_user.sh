@@ -81,8 +81,6 @@ main() {
     echo "WARN: Failed to configure .rvmrc for ${THE_USER}"
   fi
 
-  echo '***** configure_user - done *****'
-
   popd > /dev/null
 }
 
