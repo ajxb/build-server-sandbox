@@ -1,6 +1,59 @@
 #!/bin/bash
 
 ###############################################################################
+# Configures the fonts
+# Globals:
+#   $0
+# Arguments:
+#   None
+# Returns:
+#   None
+###############################################################################
+configure_fonts() {
+  echo 'Configuring fonts'
+  add-apt-repository -y ppa:no1wantdthisname/ppa
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to add apt repository for ppa:no1wantdthisname/ppa'
+  fi
+
+  apt-get -qq update
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to update apt package cache'
+  fi
+
+  apt-get -qq -y install fontconfig-infinality libcairo-gobject2 libcairo2 libfreetype6
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to install infinality'
+  fi
+
+  apt-get -qq -y install fonts-roboto
+  if [[ $? -ne 0 ]]; then
+    abort 'Failed to install fonts-roboto'
+  fi
+
+  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface document-font-name 'Roboto 10'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to set document font for ${THE_USER}"
+  fi
+
+  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface font-name 'Roboto 10'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to set default font for ${THE_USER}"
+  fi
+
+  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono 11'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to set monospace font for ${THE_USER}"
+  fi
+
+  su - ${THE_USER} -c "dbus-launch   gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto Bold 10'"
+  if [[ $? -ne 0 ]]; then
+    echo "WARN: Failed to set monospace font for ${THE_USER}"
+  fi
+}
+
+
+###############################################################################
 # Installs and configures the faba-mono icon set
 # Globals:
 #   $0
@@ -140,6 +193,7 @@ main() {
   #############################################################################
   configure_theme
   configure_icons
+  configure_fonts
 
   echo 'Configuring unity launcher'
   su - ${THE_USER} -c "dbus-launch gsettings set com.canonical.Unity.Launcher favorites \"['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://gnome-terminal.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']\""
