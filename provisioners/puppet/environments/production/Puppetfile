@@ -2,7 +2,7 @@ forge "https://forge.puppet.com"
 
 mod 'aco-oracle_java', '2.8.0'
 mod 'ajjahn-samba', '0.5.0'
-mod 'ajxb-adapta_gtk_theme', git: 'git://github.com/ajxb/puppet-adapta_gtk_theme.git', ref: '1.1.0'
+mod 'ajxb-adapta_gtk_theme', git: 'git://github.com/ajxb/puppet-adapta_gtk_theme.git', ref: '1.2.0'
 mod 'ajxb-atom', git: 'git://github.com/ajxb/puppet-atom.git', ref: '1.0.1'
 mod 'ajxb-gradle', git: 'git://github.com/ajxb/puppet-gradle.git', ref: '0.4.0'
 mod 'counsyl-packer', '0.9.18'

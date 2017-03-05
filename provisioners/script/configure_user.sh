@@ -52,7 +52,6 @@ configure_fonts() {
   fi
 }
 
-
 ###############################################################################
 # Installs and configures the faba-mono icon set
 # Globals:
@@ -82,27 +81,6 @@ configure_icons() {
   su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface icon-theme 'Faba-Mono'"
   if [[ $? -ne 0 ]]; then
     echo "WARN: Failed to configure icons for ${THE_USER}"
-  fi
-}
-
-###############################################################################
-# Installs and configures the adapta gtk theme
-# Globals:
-#   $0
-# Arguments:
-#   None
-# Returns:
-#   None
-###############################################################################
-configure_theme() {
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to configure gtk theme for ${THE_USER}"
-  fi
-
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.wm.preferences theme 'Adapta'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to configure wm theme for ${THE_USER}"
   fi
 }
 
@@ -175,7 +153,6 @@ main() {
   #############################################################################
   # Configure unity
   #############################################################################
-  configure_theme
   configure_icons
   configure_fonts
 
