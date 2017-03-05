@@ -20,6 +20,7 @@ $bs_nameservers           = lookup('bs_nameservers')
 ###############################################################################
 # Basic Includes
 ###############################################################################
+include adapta_gtk_theme
 include atom
 include ntp
 include ssh
