@@ -53,38 +53,6 @@ configure_fonts() {
 }
 
 ###############################################################################
-# Installs and configures the faba-mono icon set
-# Globals:
-#   $0
-# Arguments:
-#   None
-# Returns:
-#   None
-###############################################################################
-configure_icons() {
-  echo 'Configuring Unity icons'
-  add-apt-repository -y ppa:moka/daily
-  if [[ $? -ne 0 ]]; then
-    abort 'Failed to add apt repository for ppa:moka/daily'
-  fi
-
-  apt-get -qq update
-  if [[ $? -ne 0 ]]; then
-    abort 'Failed to update apt package cache'
-  fi
-
-  apt-get -qq -y install faba-icon-theme faba-mono-icons
-  if [[ $? -ne 0 ]]; then
-    abort 'Failed to install icons'
-  fi
-
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface icon-theme 'Faba-Mono'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to configure icons for ${THE_USER}"
-  fi
-}
-
-###############################################################################
 # Parse script input for validity and configure global variables for use
 # throughout the script
 # Globals:
@@ -153,7 +121,6 @@ main() {
   #############################################################################
   # Configure unity
   #############################################################################
-  configure_icons
   configure_fonts
 
   echo 'Configuring unity launcher'

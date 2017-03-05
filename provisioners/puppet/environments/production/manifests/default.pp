@@ -22,6 +22,7 @@ $bs_nameservers           = lookup('bs_nameservers')
 ###############################################################################
 include adapta_gtk_theme
 include atom
+include faba_icon_theme
 include ntp
 include ssh
 
@@ -238,6 +239,7 @@ file { "/home/${bs_primary_user_name}":
 }
 
 adapta_gtk_theme::user { $bs_primary_user_name: }
+faba_icon_theme::user { $bs_primary_user_name: }
 
 rvm::system_user { $bs_primary_user_name:
   create  => false,
