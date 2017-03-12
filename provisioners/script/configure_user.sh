@@ -25,31 +25,6 @@ configure_fonts() {
   if [[ $? -ne 0 ]]; then
     abort 'Failed to install infinality'
   fi
-
-  apt-get -qq -y install fonts-roboto
-  if [[ $? -ne 0 ]]; then
-    abort 'Failed to install fonts-roboto'
-  fi
-
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface document-font-name 'Roboto 10'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to set document font for ${THE_USER}"
-  fi
-
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface font-name 'Roboto 10'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to set default font for ${THE_USER}"
-  fi
-
-  su - ${THE_USER} -c "dbus-launch gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono 11'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to set monospace font for ${THE_USER}"
-  fi
-
-  su - ${THE_USER} -c "dbus-launch   gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto Bold 10'"
-  if [[ $? -ne 0 ]]; then
-    echo "WARN: Failed to set monospace font for ${THE_USER}"
-  fi
 }
 
 ###############################################################################
