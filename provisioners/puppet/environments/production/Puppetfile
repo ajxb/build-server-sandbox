@@ -6,6 +6,7 @@ mod 'ajxb-adapta_gtk_theme', git: 'git://github.com/ajxb/puppet-adapta_gtk_theme
 mod 'ajxb-atom', git: 'git://github.com/ajxb/puppet-atom.git', ref: '1.0.1'
 mod 'ajxb-faba_icon_theme', git: 'git://github.com/ajxb/puppet-faba_icon_theme.git', ref: '1.1.0'
 mod 'ajxb-gradle', git: 'git://github.com/ajxb/puppet-gradle.git', ref: '0.4.0'
+mod 'ajxb-infinality', git: 'git://github.com/ajxb/puppet-infinality.git', ref: '1.0.0'
 mod 'counsyl-packer', '0.9.18'
 mod 'ghoneycutt-ssh', '3.49.0'
 mod 'maestrodev-maven', '1.4.0'

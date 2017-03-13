@@ -23,6 +23,7 @@ $bs_nameservers           = lookup('bs_nameservers')
 include adapta_gtk_theme
 include atom
 include faba_icon_theme
+include infinality
 include ntp
 include ssh
 
