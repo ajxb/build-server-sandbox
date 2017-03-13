@@ -238,8 +238,6 @@ file { "/home/${bs_primary_user_name}":
   ],
 }
 
-faba_icon_theme::user { $bs_primary_user_name: }
-
 rvm::system_user { $bs_primary_user_name:
   create  => false,
   require => User[$bs_primary_user_name],
