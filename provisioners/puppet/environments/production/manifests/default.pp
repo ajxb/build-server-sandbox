@@ -57,8 +57,8 @@ class { 'virtualbox':
 
 virtualbox::extpack { 'Oracle_VM_VirtualBox_Extension_Pack':
   ensure           => present,
-  source           => 'http://download.virtualbox.org/virtualbox/5.1.14/Oracle_VM_VirtualBox_Extension_Pack-5.1.14.vbox-extpack',
-  checksum_string  => '90285a09b6680a93a05d81b2db090dfd',
+  source           => 'http://download.virtualbox.org/virtualbox/5.1.16/Oracle_VM_VirtualBox_Extension_Pack-5.1.16.vbox-extpack',
+  checksum_string  => 'b328f6a2ab8452b41e77f99fc02d3947',
   follow_redirects => true,
 }
 
