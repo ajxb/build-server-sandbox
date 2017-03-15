@@ -1,5 +1,5 @@
 ---
-bs_docker_version: 17.03.0~ce-0~ubuntu-xenial
+bs_docker_version: 1.13.1-0~ubuntu-xenial
 bs_gradle_version: 3.4.1
 bs_java_version: 8u121
 bs_maven_version: 3.3.9
