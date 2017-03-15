@@ -18,14 +18,9 @@ $bs_samba_workgroup       = lookup('bs_samba_workgroup')
 $bs_nameservers           = lookup('bs_nameservers')
 
 ###############################################################################
-# Basic Includes
+# Basic includes now coming from Hiera
 ###############################################################################
-include adapta_gtk_theme
-include atom
-include faba_icon_theme
-include infinality
-include ntp
-include ssh
+lookup('classes', Array[String], 'unique').include
 
 ###############################################################################
 # resolvconf

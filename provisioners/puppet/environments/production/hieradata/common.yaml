@@ -7,3 +7,11 @@ bs_packer_version: 0.12.3
 bs_ruby_version: 2.3.3
 bs_rubygems_version: 2.6.10
 bs_vagrant_version: 1.9.2
+
+classes:
+  - adapta_gtk_theme
+  - atom
+  - faba_icon_theme
+  - infinality
+  - ntp
+  - ssh
