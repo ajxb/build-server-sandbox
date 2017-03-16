@@ -13,6 +13,8 @@ classes:
   - docker::images
   - docker::run_instance
   - google_chrome
+  - nginx
+  - hosts
 
 docker::images::images:
   jenkins:
@@ -27,3 +29,11 @@ docker::run_instance::instance:
     tty: true
     username: '0'
     volumes: /var/lib/docker/volumes/jenkins:/var/jenkins_home:z
+
+nginx::nginx_servers:
+  jenkins.local:
+    proxy: http://localhost:49001
+
+hosts::host_entries:
+ jenkins.local:
+   ip: 127.0.0.1
