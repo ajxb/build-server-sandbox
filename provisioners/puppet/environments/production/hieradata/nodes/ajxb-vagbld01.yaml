@@ -12,6 +12,7 @@ bs_nameservers:
 classes:
   - docker::images
   - docker::run_instance
+  - google_chrome
 
 docker::images::images:
   jenkins:
