@@ -29,7 +29,7 @@ Vagrant.configure('2') do |config|
   # The following will load host config from a .host file if it exists, if the
   # .host file does not exist a new IP address / hostname is generated
   # This ensures persistence with the hostname / IP address between up / halt operations
-  hostname = 'vagbld01.home'
+  hostname = 'ajxb-vagbld01.home'
   ip_address = nil
   if File.file? "#{vagrant_root}/.host"
     hostconfig = YAML.load_file("#{vagrant_root}/.host")
