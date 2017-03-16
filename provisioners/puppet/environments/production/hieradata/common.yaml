@@ -9,5 +9,11 @@ bs_rubygems_version: 2.6.10
 bs_vagrant_version: 1.9.2
 
 classes:
+  - docker
   - ntp
   - ssh
+
+docker:
+  version: "%{lookup('bs_docker_version')}"
+  dns: "%{lookup('bs_nameservers')}"
+  docker_users: "%{lookup('bs_primary_user_name')}"
