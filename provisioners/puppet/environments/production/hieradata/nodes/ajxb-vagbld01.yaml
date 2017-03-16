@@ -10,11 +10,15 @@ bs_nameservers:
   - 8.8.4.4
 
 classes:
+  - adapta_gtk_theme
+  - atom
   - docker::images
   - docker::run_instance
+  - faba_icon_theme
   - google_chrome
-  - nginx
   - hosts
+  - infinality
+  - nginx
 
 docker::images::images:
   jenkins:
